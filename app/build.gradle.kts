@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+//    adicionado para usar o SQLite:
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -40,6 +42,24 @@ android {
 }
 
 dependencies {
+    // Room (entity, sqlite)
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+
+    // Coroutines support for Room
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+    )
+// Extensions
+    implementation ("androidx.fragment:fragment-ktx:1.8.3")
+    implementation("androidx.activity:activity-ktx:1.9.2")
+// ViewModel e LiveData
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.6")
+
+    // RecyclerView
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
