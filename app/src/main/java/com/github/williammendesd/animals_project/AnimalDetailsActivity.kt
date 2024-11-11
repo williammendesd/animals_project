@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 import com.github.williammendesd.animals_project.databinding.ActivityAnimalDetailsBinding
 
 class AnimalDetailsActivity : AppCompatActivity() {
@@ -17,7 +18,10 @@ class AnimalDetailsActivity : AppCompatActivity() {
         binding = ActivityAnimalDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         recuperarDados()
+        setUpListeners()
+    }
 
+    private fun setUpListeners () {
         binding.btnGoBack.setOnClickListener {
             //startActivity(Intent(this, MainActivity::class.java))
             // para que a página não permaneça na pilha após retornar para o main:
@@ -27,7 +31,10 @@ class AnimalDetailsActivity : AppCompatActivity() {
 
     private fun recuperarDados(){
         val nome = intent.getStringExtra("nome")
-        binding.editNome.text = nome
-        print(nome)
+        val image = intent.getStringExtra("image")
+//        val image = intent.getStringExtra("image")
+//        Glide.with(binding.root.context).load(image).into(binding.imageView)
+        binding.titulo.text = nome
+        Glide.with(binding.root.context).load(image).into(binding.image)
     }
 }

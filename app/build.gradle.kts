@@ -51,15 +51,23 @@ dependencies {
     // Coroutines support for Room
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
     )
-// Extensions
+    // Extensions para activity
     implementation ("androidx.fragment:fragment-ktx:1.8.3")
     implementation("androidx.activity:activity-ktx:1.9.2")
-// ViewModel e LiveData
+    // ViewModel e LiveData
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.6")
 
-    // RecyclerView
+    // RecyclerView, Componente de lista
     implementation ("androidx.recyclerview:recyclerview:1.3.2")
+
+    // Retrofit para consumir webservices
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Glide para carregar as imagens a partir de uma url remota
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
